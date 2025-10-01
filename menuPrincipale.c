@@ -3,7 +3,7 @@
 #include "headers/client.h"
 #include "headers/menu.h"
 
-void menuPrincipale(){
+void menuPrincipale(struct info Client, struct produits List){
 
     while (1) {
         printf("=== SYSTÈME D'ACHAT CLIENT ===\n");
@@ -27,13 +27,13 @@ void menuPrincipale(){
                 system("clear");
                 return ;
             case 1:
-                menuProfile();
+                menuProfile(Client);
                 break;
             case 2:
                 
                 break;
             case 3:
-                produitList();
+                produitList(List);
             default:
                 system("clear");
                 printf("Choix invalide!\n");

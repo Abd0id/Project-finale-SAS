@@ -3,7 +3,7 @@
 #include "headers/client.h"
 #include "headers/menu.h"
 
-void menuProfile(){
+void menuProfile(struct info Client){
 
     printf("\n===GESTION DU PROFIL===\n");
     printf("\t\n");

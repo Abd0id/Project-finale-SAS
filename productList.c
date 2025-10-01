@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-void produitList() {
-    struct produits List[] = {
+void produitList(struct produits List[]) {
+        List[] = {
         // ----- Laptops -----
         {1, "MacBook Pro 16", "Laptops", 2499.99, 20, "Apple MacBook Pro 16 pouces avec puce M3 Pro."},
         {2, "Dell XPS 15", "Laptops", 1899.99, 25, "Dell XPS 15 avec écran InfinityEdge et i7."},

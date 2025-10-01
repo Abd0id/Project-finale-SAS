@@ -26,6 +26,6 @@ struct produits{
 
 void addInfo(struct info Client);
 void editInfo(struct info Client);
-void produitList(struct produits List);
+void produitList(struct produits List[]);
 
 #endif

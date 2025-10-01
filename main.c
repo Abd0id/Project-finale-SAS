@@ -6,7 +6,10 @@ int main(){
 
     struct info Client;
 
-    menuPrincipale();
+    struct produits List[100];
+
+    menuPrincipale(Client,List[100]);
+
 
     return 0;
 }
