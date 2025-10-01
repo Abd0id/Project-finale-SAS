@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include "headers/client.h"
+#include "headers/info.h"
+#include "headers/produits.h"
 #include "headers/menu.h"
 
 int main(){
@@ -8,7 +9,7 @@ int main(){
 
     struct produits List[100];
 
-    menuPrincipale(Client,List[100]);
+    menuPrincipale(Client,List[10]);
 
 
     return 0;

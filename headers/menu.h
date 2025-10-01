@@ -1,9 +1,9 @@
 #ifndef MENU_H
 #define MENU_H 
 
-#include "client.h"
+#include "info.h"
 
-void menuPrincipale(struct info Client, struct produits List);
+void menuPrincipale(struct info Client, struct produits List[]);
 void menuProfile(struct info Client);
 void menuProduit();
 void menuAchat();

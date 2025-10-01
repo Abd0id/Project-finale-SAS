@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "headers/client.h"
+#include "headers/info.h"
 #include "headers/menu.h"
 
 void menuProfile(struct info Client){

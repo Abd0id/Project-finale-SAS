@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include "headers/client.h"
+#include "headers/info.h"
 
 void addInfo(struct info Client){
 

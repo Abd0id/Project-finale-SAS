@@ -11,21 +11,7 @@ struct info{
 
 };
 
-struct produits{
-
-    int idProduit;
-    int stock;
-    char nomProduit[30];
-    char categorie[30];
-    char description[100];
-    float prix;
-
-};
-
-
-
 void addInfo(struct info Client);
 void editInfo(struct info Client);
-void produitList(struct produits List[]);
 
 #endif

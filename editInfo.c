@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "headers/client.h"
+#include "headers/info.h"
 
 void editInfo(struct info Client){
 
