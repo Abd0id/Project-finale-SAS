@@ -4,8 +4,7 @@
 #include "headers/produits.h"
 #include "headers/menu.h"
 
-void menuPrincipale(struct info Client, struct produits List[]){
-
+void menuPrincipale(struct info *Client, struct produits List[], int taille) {
     while (1) {
         printf("=== SYSTÈME D'ACHAT CLIENT ===\n");
         printf("\t\n");
@@ -21,23 +20,36 @@ void menuPrincipale(struct info Client, struct produits List[]){
         int choix;
 
         printf("Entrez votre choix: ");
-        scanf("%d",&choix);
+        scanf("%d", &choix);
 
-        switch(choix){
+        switch(choix) {
             case 0:
                 system("clear");
-                return ;
+                printf("Au revoir! Merci d'avoir utilisé notre service.\n");
+                return;
             case 1:
+                system("clear");
                 menuProfile(Client);
                 break;
             case 2:
-                
+                system("clear");
+                solde(Client);
                 break;
             case 3:
-                produitList(List);
+                system("clear");
+                produitList(List, taille);
+                break;
+            case 4:
+                system("clear");
+                menuAchat(Client, List, taille);
+                break;
+            case 5:
+                system("clear");
+                afficherStatistiques(Client);
+                break;
             default:
                 system("clear");
-                printf("Choix invalide!\n");
+                printf("Choix invalide! Veuillez réessayer.\n");
                 break;
         }
     }
