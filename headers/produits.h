@@ -14,6 +14,7 @@ struct produits{
 
 void produitList(struct produits List[], int taille);
 int acheterProduit(struct produits List[], int taille, struct info *Client, int idProduit, int quantite);
+int searchProduit(struct produits List[], int taille);
 
 
 #endif

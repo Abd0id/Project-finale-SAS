@@ -8,5 +8,6 @@ void menuPrincipale(struct info *Client, struct produits List[], int taille);
 void menuProfile(struct info *Client);
 void menuProduit(struct produits List[], int taille);
 void menuAchat(struct info *Client, struct produits List[], int taille);
+int browseCatalogue(struct produits List[], int taille);
 
 #endif

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 #include "headers/info.h"
 
 void emailGen(struct info *Client){
@@ -9,6 +10,14 @@ void emailGen(struct info *Client){
         printf("\t\n");
         return ;
 
+    }
+
+    for (int i = 0; Client->prenom[i] != '\0';i++){
+        Client->prenom[i] = tolower(Client->prenom[i]);
+    }
+
+    for (int i = 0; Client->nom[i] != '\0';i++){
+        Client->nom[i] = tolower(Client->nom[i]);
     }
 
     sprintf(Client->email, "%s.%s@email.com", Client->prenom, Client->nom);
