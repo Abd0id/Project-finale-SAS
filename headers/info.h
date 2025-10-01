@@ -11,6 +11,7 @@ struct info {
 };
 
 void addInfo(struct info *Client);
+void emailGen(struct info *Client);
 void editInfo(struct info *Client);
 void showInfo(struct info *Client);
 void solde(struct info *Client);

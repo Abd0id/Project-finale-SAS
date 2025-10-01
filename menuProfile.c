@@ -33,10 +33,14 @@ void menuProfile(struct info *Client){
         case 3:
             showInfo(Client);
             break;
+        case 4:
+            emailGen(Client);
+            break;
         default:
             system("clear");
             printf("Choix invalide!\n");
-            break;
+           
+ break;
     }  
 
 }
