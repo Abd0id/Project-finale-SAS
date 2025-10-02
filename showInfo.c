@@ -17,5 +17,4 @@ void showInfo(struct info *Client) {
     printf("Solde: %.2f MAD\n", Client->solde);
     printf("\nAppuyez sur Entrée pour continuer...");
     getchar();
-    getchar();
 }

@@ -4,7 +4,7 @@
 #include "headers/menu.h"
 
 int main() {
-    struct info Client = {0};
+    struct info Client;
     struct produits List[10] = {
         {1, 20, "MacBook_Pro_16", "Laptops", "Apple MacBook Pro 16 pouces avec puce M3 Pro.", 2499.99},
         {2, 25, "Dell_XPS_15", "Laptops", "Dell XPS 15 avec écran InfinityEdge et i7.", 1899.99},

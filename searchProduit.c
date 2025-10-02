@@ -3,12 +3,10 @@
 #include "headers/info.h"
 #include "headers/produits.h"
 
-
-void triParPrix(struct produits List[], int taille, int ordre) {
+void triParPrixCroissant(struct produits List[], int taille) {
     for (int i = 0; i < taille - 1; i++) {
         for (int j = i + 1; j < taille; j++) {
-            int condition = (ordre == 0) ? (List[i].prix > List[j].prix) : (List[i].prix < List[j].prix);
-            if (condition) {
+            if (List[i].prix > List[j].prix) {
                 struct produits temp = List[i];
                 List[i] = List[j];
                 List[j] = temp;
@@ -16,7 +14,7 @@ void triParPrix(struct produits List[], int taille, int ordre) {
         }
     }
 
-    printf("\n--- Produits tries par prix (%s) ---\n", ordre == 0 ? "croissant" : "decroissant");
+    printf("\n--- Produits tries par prix croissant ---\n");
     for (int i = 0; i < taille; i++) {
         printf("\nID: %d\nNom: %s\nCategorie: %s\nPrix: %.2f MAD\nStock: %d\nDescription: %s\n",
                List[i].idProduit,
@@ -28,6 +26,74 @@ void triParPrix(struct produits List[], int taille, int ordre) {
     }
 }
 
+void triParPrixDecroissant(struct produits List[], int taille) {
+    for (int i = 0; i < taille - 1; i++) {
+        for (int j = i + 1; j < taille; j++) {
+            if (List[i].prix < List[j].prix) {
+                struct produits temp = List[i];
+                List[i] = List[j];
+                List[j] = temp;
+            }
+        }
+    }
+
+    printf("\n--- Produits tries par prix decroissant ---\n");
+    for (int i = 0; i < taille; i++) {
+        printf("\nID: %d\nNom: %s\nCategorie: %s\nPrix: %.2f MAD\nStock: %d\nDescription: %s\n",
+               List[i].idProduit,
+               List[i].nomProduit,
+               List[i].categorie,
+               List[i].prix,
+               List[i].stock,
+               List[i].description);
+    }
+}
+
+void triParNomAZ(struct produits List[], int taille) {
+    for (int i = 0; i < taille - 1; i++) {
+        for (int j = i + 1; j < taille; j++) {
+            if (strcmp(List[i].nomProduit, List[j].nomProduit) > 0) {
+                struct produits temp = List[i];
+                List[i] = List[j];
+                List[j] = temp;
+            }
+        }
+    }
+
+    printf("\n--- Produits tries par nom A-Z ---\n");
+    for (int i = 0; i < taille; i++) {
+        printf("\nID: %d\nNom: %s\nCategorie: %s\nPrix: %.2f MAD\nStock: %d\nDescription: %s\n",
+               List[i].idProduit,
+               List[i].nomProduit,
+               List[i].categorie,
+               List[i].prix,
+               List[i].stock,
+               List[i].description);
+    }
+}
+
+void triParNomZA(struct produits List[], int taille) {
+    for (int i = 0; i < taille - 1; i++) {
+        for (int j = i + 1; j < taille; j++) {
+            if (strcmp(List[i].nomProduit, List[j].nomProduit) < 0) {
+                struct produits temp = List[i];
+                List[i] = List[j];
+                List[j] = temp;
+            }
+        }
+    }
+
+    printf("\n--- Produits tries par nom Z-A ---\n");
+    for (int i = 0; i < taille; i++) {
+        printf("\nID: %d\nNom: %s\nCategorie: %s\nPrix: %.2f MAD\nStock: %d\nDescription: %s\n",
+               List[i].idProduit,
+               List[i].nomProduit,
+               List[i].categorie,
+               List[i].prix,
+               List[i].stock,
+               List[i].description);
+    }
+}
 
 void searchByCategory(struct produits List[], int taille) {
     char cat[30];
@@ -54,7 +120,6 @@ void searchByCategory(struct produits List[], int taille) {
     }
 }
 
-
 int searchByName(struct produits List[], int taille) {
     char name[30];
     printf("\n--- Recherche par Nom ---\n");
@@ -78,33 +143,42 @@ int searchByName(struct produits List[], int taille) {
     return -1; 
 }
 
-
 int browseCatalogue(struct produits List[], int taille) {
     int choix;
-    do {
-        printf("\n=== CATALOGUE ===\n");
-        printf("0. Trier prix croissant\n");
-        printf("1. Trier prix decroissant\n");
-        printf("2. Rechercher par categorie\n");
-        printf("3. Rechercher par nom (pour acheter)\n");
-        printf("4. Quitter\n");
-        printf("Votre choix: ");
-        scanf("%d", &choix);
+    
+    printf("\n=== CATALOGUE ===\n");
+    printf("1. Trier prix croissant\n");
+    printf("2. Trier prix decroissant\n");
+    printf("3. Trier par nom (A-Z)\n");
+    printf("4. Trier par nom (Z-A)\n");
+    printf("5. Rechercher par categorie\n");
+    printf("6. Rechercher par nom (pour acheter)\n");
+    printf("0. Quitter\n");
+    printf("Votre choix: ");
+    scanf("%d", &choix);
 
-        switch (choix) {
-            case 0:
-            case 1:
-                triParPrix(List, taille, choix);
-                break;
-            case 2:
-                searchByCategory(List, taille);
-                break;
-            case 3:
-                return searchByName(List, taille); 
-            case 4:
-                return -1; 
-            default:
-                printf("Choix invalide.\n");
-        }
-    } while (1);
+    switch (choix) {
+        case 0:
+            return -1;
+        case 1:
+            triParPrixCroissant(List, taille);
+            return -1;
+        case 2:
+            triParPrixDecroissant(List, taille);
+            return -1;
+        case 3:
+            triParNomAZ(List, taille);
+            return -1;
+        case 4:
+            triParNomZA(List, taille);
+            return -1;
+        case 5:
+            searchByCategory(List, taille);
+            return -1;
+        case 6:
+            return searchByName(List, taille);
+        default:
+            printf("Choix invalide.\n");
+            return -1;
+    }
 }
