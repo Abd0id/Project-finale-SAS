@@ -146,39 +146,41 @@ int searchByName(struct produits List[], int taille) {
 int browseCatalogue(struct produits List[], int taille) {
     int choix;
     
-    printf("\n=== CATALOGUE ===\n");
-    printf("1. Trier prix croissant\n");
-    printf("2. Trier prix decroissant\n");
-    printf("3. Trier par nom (A-Z)\n");
-    printf("4. Trier par nom (Z-A)\n");
-    printf("5. Rechercher par categorie\n");
-    printf("6. Rechercher par nom (pour acheter)\n");
-    printf("0. Quitter\n");
-    printf("Votre choix: ");
-    scanf("%d", &choix);
+    do{
+        printf("\n=== CATALOGUE ===\n");
+        printf("1. Trier prix croissant\n");
+        printf("2. Trier prix decroissant\n");
+        printf("3. Trier par nom (A-Z)\n");
+        printf("4. Trier par nom (Z-A)\n");
+        printf("5. Rechercher par categorie\n");
+        printf("6. Rechercher par nom (pour acheter)\n");
+        printf("0. Quitter\n");
+        printf("Votre choix: ");
+        scanf("%d", &choix);
 
-    switch (choix) {
-        case 0:
-            return -1;
-        case 1:
-            triParPrixCroissant(List, taille);
-            return -1;
-        case 2:
-            triParPrixDecroissant(List, taille);
-            return -1;
-        case 3:
-            triParNomAZ(List, taille);
-            return -1;
-        case 4:
-            triParNomZA(List, taille);
-            return -1;
-        case 5:
-            searchByCategory(List, taille);
-            return -1;
-        case 6:
-            return searchByName(List, taille);
-        default:
-            printf("Choix invalide.\n");
-            return -1;
-    }
+        switch (choix) {
+            case 0:
+                 break;
+            case 1:
+                triParPrixCroissant(List, taille);
+                break;
+            case 2:
+                triParPrixDecroissant(List, taille);
+                break;
+            case 3:
+                triParNomAZ(List, taille);
+                break;
+            case 4:
+                triParNomZA(List, taille);
+                break;
+            case 5:
+                searchByCategory(List, taille);
+                break;
+            case 6:
+                return searchByName(List, taille);
+            default:
+                printf("Choix invalide.\n");
+                break;
+        }
+    }while(1);
 }
