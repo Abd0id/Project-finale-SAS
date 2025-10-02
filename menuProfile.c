@@ -39,8 +39,7 @@ void menuProfile(struct info *Client){
         default:
             system("clear");
             printf("Choix invalide!\n");
-           
- break;
+            break;
     }  
 
 }
